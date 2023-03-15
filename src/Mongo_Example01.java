@@ -96,13 +96,14 @@ public class Mongo_Example01 {
     }
     
     
-    private static void andLogicalComparison_Example(DBCollection collection) 
-    {
-        BasicDBObject andQuery = new BasicDBObject();
+    private static void andLogicalComparison_Example(DBCollection collection){
         List<BasicDBObject> obj = new ArrayList<BasicDBObject>();
         obj.add(new BasicDBObject("borough", "Bronx"));
-          obj.add(new BasicDBObject("cuisine", "American "));
+        obj.add(new BasicDBObject("cuisine", "American "));
+
+        BasicDBObject andQuery = new BasicDBObject();
         andQuery.put("$and", obj);
+
         DBCursor cursor = collection.find(andQuery);
         while (cursor.hasNext()) {
             System.out.println(cursor.next());
@@ -122,10 +123,5 @@ public class Mongo_Example01 {
             System.out.println(cursor.next());
         }
     }
-    
-    
-    
-    
 
-    
     }
